@@ -1,9 +1,10 @@
-
+require('dotenv').config();
 import axios from 'axios';
 import "./styles.css";
 
 const API_URL = 'https://api.github.com/users/';
-const accessToken = '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';
+const accessToken = process.env.API_KEY;
+
 
 const itemsPerPage = document.getElementById('page').value;
 let currentPage = 1;
@@ -39,7 +40,7 @@ async function fetchRepositories(username, page) {
         per_page: document.getElementById('page').value,
       },
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${process.env.API_KEY}`,
       }
     });
 
@@ -56,7 +57,7 @@ async function getRepositoryTopics(username, repoName) {
   try {
     const response = await axios.get(`https://api.github.com/repos/${username}/${repoName}/topics`,{
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${process.env.API_KEY}`,
       }
     });
     
@@ -71,7 +72,7 @@ async function getUserInfo(username) {
   try {
     const response = await axios.get(`${API_URL}${username}`,{
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${process.env.API_KEY}`,
       }
     });
     return response.data;

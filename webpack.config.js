@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotEnv = require('dotenv-webpack');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = {
   entry: ["./src/styles.css", './src/index.js'],
@@ -36,5 +38,7 @@ module.exports = {
       template: './index.html',
       filename: 'index.html',
     }),
+    new DotEnv(),
+    new NodePolyfillPlugin(),
   ],
 };
