@@ -1,0 +1,41 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repositories</title>
+  <link rel="stylesheet" href="/dist/styles.bundle.css">
+</head>
+<body>
+  
+<div id="userInpDiv">
+  <h1>GitHub Repositories</h1>
+  <div id="inp">
+  <label for="username">Enter GitHub Username:</label>
+  <input type="text" id="username" value="freeCodeCamp" />
+  <label for="page">Per Page:</label>
+  <input type="number" id="page" value="10" />
+  </div>
+  <button id="getReposButton">Get Repositories</button>
+</div>
+ 
+
+  <!-- Container for user information -->
+  <div id="userInfo"></div>
+
+  <!-- Container for repositories -->
+  <div id="repositories"></div>
+  <div id="repoLoader" class="repo-loader" style="display: none;">
+    <span class="loader"></span>
+  </div>
+
+  <div id="pagination">
+    <button id="prevButton">Previous</button>
+    <span id="currentPage">Page 1</span>
+    <button id="nextButton">Next</button>
+  </div>
+
+  <script src="/dist/bundle.js"></script>
+</body>
+</html>
